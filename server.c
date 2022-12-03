@@ -6,11 +6,12 @@
 /*   By: aliburdi <aliburdi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/02 11:38:02 by aliburdi          #+#    #+#             */
-/*   Updated: 2022/12/02 13:36:30 by aliburdi         ###   ########.fr       */
+/*   Updated: 2022/12/03 19:21:24 by aliburdi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minitalk.h"
+#include <stdio.h>
 
 void	sig_handler(int sig, siginfo_t *info, void *a)
 {
@@ -19,7 +20,7 @@ void	sig_handler(int sig, siginfo_t *info, void *a)
 	pid_t					send_pid;
 
 	send_pid = info->si_pid;
-	c |= (sig == SIGUSR1);
+	c = c | (sig == SIGUSR1);
 	if (++i == 8)
 	{
 		i = 0;
